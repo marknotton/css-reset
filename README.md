@@ -19,7 +19,7 @@ This package is built with the understanding that we don’t want to use default
 
 1) Import directly in your scss file:
 ```css
-    @use "the-new-css-reset/css/reset.css";
+@use "the-new-css-reset/css/reset.css";
 ```
 
 2) Include the following snippet in one of the JavaScript/TypeScript entry files:
