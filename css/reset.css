@@ -1,100 +1,229 @@
 /***
     The new CSS reset - version 1.9 (last updated 19.6.2023)
     GitHub page: https://github.com/elad2412/the-new-css-reset
+    Forked : https://github.com/marknotton/css-reset
 ***/
 
-/*
-    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
-    - The "symbol *" part is to solve Firefox SVG sprite bug
-    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
- */
-*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
-    all: unset;
-    display: revert;
-}
+@layer reset {
 
-/* Preferred box-sizing value */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
+    /*
+        Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+        - The "symbol *" part is to solve Firefox SVG sprite bug
+        - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+    */
+    *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+        all: unset;
+        display: revert;
+    }
 
-/* Reapply the pointer cursor for anchor tags */
-a, button {
-    cursor: revert;
-}
+    /* Preferred box-sizing value */
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
 
-/* Remove list styles (bullets/numbers) */
-ol, ul, menu {
-    list-style: none;
-}
+    /* Reapply the pointer cursor for anchor tags */
+    a, button {
+        cursor: revert;
+    }
 
-/* For images to not be able to exceed their container */
-img {
-    max-inline-size: 100%;
-    max-block-size: 100%;
-}
+    /* Remove list styles (bullets/numbers) */
+    ol, ul, menu {
+        list-style-type: revert;
+    }
 
-/* removes spacing between cells in tables */
-table {
-    border-collapse: collapse;
-}
+    /* noscript is handled internally, as it depends on settings. */
 
-/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
-input, textarea {
-    -webkit-user-select: auto;
-}
+    html { 
+        height : 100%; 
+    }
 
-/* revert the 'white-space' property for textarea elements on Safari */
-textarea {
-    white-space: revert;
-}
+    body {
+        min-height : 100%;
+        text-rendering : optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+    }
 
-/* minimum style to allow to style meter element */
-meter {
-    -webkit-appearance: revert;
-    appearance: revert;
-}
+    /* For images to not be able to exceed their container */
+    img {
+        max-inline-size: 100%;
+        max-block-size: 100%;
+        max-inline-size: 100%;
+        max-block-size: 100%;
+        display: block;
+    }
 
-/* preformatted text - use only for this feature */
-:where(pre) {
-    all: revert;
-}
+    /* removes spacing between cells in tables */
+    table {
+        border-collapse: collapse;
+    }
 
-/* reset default text opacity of input placeholder */
-::placeholder {
-    color: unset;
-}
+    /* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+    input, textarea {
+        -webkit-user-select: auto;
+    }
 
-/* remove default dot (•) sign */
-::marker {
-    content: initial;
-}
+    /* revert the 'white-space' property for textarea elements on Safari */
+    textarea {
+        white-space: revert;
+    }
 
-/* fix the feature of 'hidden' attribute.
-   display:revert; revert to element instead of attribute */
-:where([hidden]) {
-    display: none;
-}
+    script, style { 
+        display:none !important; 
+    }
 
-/* revert for bug in Chromium browsers
-   - fix for the content editable attribute will work properly.
-   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
-:where([contenteditable]:not([contenteditable="false"])) {
-    -moz-user-modify: read-write;
-    -webkit-user-modify: read-write;
-    overflow-wrap: break-word;
-    -webkit-line-break: after-white-space;
-    -webkit-user-select: auto;
-}
+    /* minimum style to allow to style meter element */
+    meter {
+        -webkit-appearance: revert;
+        appearance: revert;
+    }
 
-/* apply back the draggable feature - exist only in Chromium and Safari */
-:where([draggable="true"]) {
-    -webkit-user-drag: element;
-}
+    :where(svg, symbol) {
+        overflow: visible;
+        vertical-align: bottom;
+    }
 
-/* Revert Modal native behavior */
-:where(dialog:modal) {
-    all: revert;
+    :where(video) { 
+        width: 100%;
+        background-color: black;
+    }
+
+    /* Remove list styles (bullets/numbers) */
+    :where(ol, ul) {
+        list-style-type: revert;
+    }
+    :where(ol, ul) li {
+        margin-inline-start: 1em;
+    }
+    :where(ol, ul) li :where(ol, ul, li + li) {
+        margin-block-start: 1em;
+    }
+
+    :where(small, sup, sub) { 
+        font-size:x-small;
+    }
+
+    :where(sup, sub) { 
+        vertical-align: revert;
+    }
+
+    :where(b, strong) { 
+        font-weight: bold; 
+    }
+
+    :where(embed) {
+        width: 100%;
+    }
+
+    :where(iframe) {
+        border:unset;
+        width: 100%;
+    }
+
+    :where(i, em) { 
+        font-style: italic;
+    }
+
+    :where(s, del) {
+        text-decoration: revert;
+    }
+
+    /* Scroll padding allowance below focused elements 
+    to ensure they are clearly in view */
+    :focus {
+        scroll-padding-block-end: var(--spacer, 2rem);
+    }
+
+    /* Scroll padding allowance above anchor links */
+    :target {
+        scroll-padding-block-start: var(--gutter, 2rem);
+    }
+
+    /* preformatted text - use only for this feature */
+    :where(pre) {
+        all: revert;
+    }
+
+    :where(hr) {
+        overflow: revert;
+        margin-inline: revert;
+        border-style: solid;
+        border-width: 1px 0 0 0;
+    }
+
+    /* When available, balance headings to break evening on each line */
+    :where(h1, h2, h3, h4, h5, h6) { 
+        text-wrap: balance;
+    }
+
+    :where(a:any-link, u) {
+        text-underline-offset: 0.2em;
+    }
+
+    :where(label) { 
+        position:relative;
+    }
+
+    :is(label input[type="radio"], label input[type="checkbox"]) { 
+        position:absolute; 
+        opacity:0; 
+        pointer-events: none; 
+    }
+
+    :where(details > summary) {
+        list-style: none;
+        cursor: pointer;
+    }
+
+    :where(details > summary)::-webkit-details-marker {
+        display:none;
+    }
+
+    audio {
+        width: 100%;
+        height: revert;
+    }
+
+
+    /* reset default text opacity of input placeholder */
+    ::placeholder {
+        color: unset;
+    }
+
+    /* remove default dot (•) sign */
+    ::marker {
+        content: initial;
+    }
+
+    /* fix the feature of 'hidden' attribute.
+    display:revert; revert to element instead of attribute */
+    :where([hidden]) {
+        display: none;
+    }
+
+    /* revert for bug in Chromium browsers
+        - fix for the content editable attribute will work properly.
+        - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element */
+    :where([contenteditable]:not([contenteditable="false"])) {
+        -moz-user-modify: read-write;
+        -webkit-user-modify: read-write;
+        overflow-wrap: break-word;
+        -webkit-line-break: after-white-space;
+        -webkit-user-select: auto;
+    }
+
+    /* apply back the draggable feature - exist only in Chromium and Safari */
+    :where([draggable="true"]) {
+        -webkit-user-drag: element;
+    }
+
+    /* Revert Modal native behavior */
+    :where(dialog:modal) {
+        all: revert;
+    }
+
+    :where(p, pre, blockquote, ol, ul, li, legend, figcaption, body, article, nav, 
+    aside, section, header, footer, address):empty { display:none; }
+
 }
