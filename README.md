@@ -1,4 +1,4 @@
-# ⏪ The New CSS Reset
+# CSS Reset
 **A package that resets some of the default, user agent based, styles.**
 
 It **doesn't** affect the `display` property and special HTML elements like ```iframe```, ```canvas```, ```img```, ```svg``` and ```video```.
@@ -13,14 +13,18 @@ It **doesn't** affect the `display` property and special HTML elements like ```i
 This package is built with the understanding that we don’t want to use default styles we are getting from the browsers, except for the `display` property.
 
 ## How to get started?
-**Run ```npm i the-new-css-reset``` OR [Download the Latest Version](https://raw.githubusercontent.com/elad2412/the-new-css-reset/main/css/reset.css).**
+**Run ```npm install git+https://github.com/marknotton/css-reset``` OR [Download the Latest Version](https://raw.githubusercontent.com/marknotton/css-reset/main/css/reset.css).**
 
 **Once installed, you can use it in two different ways:**
 
-1) Import ```/css/reset.css``` before the regular styles of the project.
+1) Import directly in your scss file:
+```css
+    @use "the-new-css-reset/css/reset.css";
+```
+
 2) Include the following snippet in one of the JavaScript/TypeScript entry files:
 ```js
-import "css-reset/css/reset.css";
+import "the-new-css-reset/css/reset.css";
 ```
 
 ## Want to exclude some of the resets?
