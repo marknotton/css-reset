@@ -176,7 +176,7 @@
         cursor: pointer;
     }
 
-    :where(details > summary)::-webkit-details-marker {
+    :where(details > summary::-webkit-details-marker) {
         display:none;
     }
 
