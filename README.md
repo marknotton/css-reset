@@ -20,14 +20,14 @@ Or [download the latest version](https://raw.githubusercontent.com/marknotton/cs
 
 Import directly in your scss file:
 ```sass
-@use "@marknotton/css-reset";
+@use "@marknotton/css-reset"
 ```
 Or
 ```sass
-@use "node_module/@marknotton/css-reset/css/reset.css";
+@use "node_module/@marknotton/css-reset/css/reset.css"
 ```
 Or if you want to use Cascade Layers within your SCSS:
-```
+```sass
 @use 'sass:meta';
 
 @layer reset, defaults;
