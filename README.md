@@ -26,6 +26,18 @@ Or
 ```sass
 @use "node_module/@marknotton/css-reset/css/reset.css";
 ```
+Or if you want to use Cascade Layers within your SCSS:
+```
+@use 'sass:meta';
+
+@layer reset, defaults;
+
+@layer reset {
+  @include meta.load-css("@marknotton/css-reset");
+}
+
+@layer defaults { ... }
+```
 
 ### The Javascript way:
 
