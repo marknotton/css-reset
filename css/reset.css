@@ -26,30 +26,31 @@ a, button {
     cursor: revert;
 }
 
-/* Remove list styles (bullets/numbers) */
-ol, ul, menu {
-    list-style-type: revert;
-}
-
 /* noscript is handled internally, as it depends on settings. */
 
 html { 
     height : 100%; 
+    hanging-punctuation: first last;
 }
 
 body {
     min-height : 100%;
     text-rendering : optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
 }
 
 /* For images to not be able to exceed their container */
 img {
-    max-inline-size: 100%;
-    max-block-size: 100%;
-    max-inline-size: 100%;
-    max-block-size: 100%;
-    display: block;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle; 
+    font-style: italic; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    shape-margin: 0.75rem;
 }
 
 /* removes spacing between cells in tables */
@@ -127,15 +128,24 @@ meter {
     text-decoration: revert;
 }
 
-/* Scroll padding allowance below focused elements 
-to ensure they are clearly in view */
-:focus {
-    scroll-padding-block-end: var(--spacer, 2rem);
+@media (prefers-reduced-motion: no-preference) {
+
+    /* Scroll padding allowance above anchor links */
+    :has(:target) {
+        scroll-behavior: smooth;    
+        scroll-padding-block-start: var(--gutter, 2rem);
+    }
+
+    /* Scroll padding allowance below focused elements 
+    to ensure they are clearly in view */
+    :focus {
+        scroll-padding-block-end: var(--spacer, 2rem);
+    }
 }
 
-/* Scroll padding allowance above anchor links */
-:target {
-    scroll-padding-block-start: var(--gutter, 2rem);
+:where(p) {
+    max-width: 75ch;
+    text-wrap: pretty;
 }
 
 /* preformatted text - use only for this feature */
@@ -175,7 +185,7 @@ to ensure they are clearly in view */
     cursor: pointer;
 }
 
-:where(details > summary)::-webkit-details-marker {
+::-webkit-details-marker {
     display:none;
 }
 

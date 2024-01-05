@@ -1,6 +1,6 @@
 {
   "name": "@marknotton/css-reset",
-  "version": "1.9.3",
+  "version": "1.11.2",
   "description": "An opinionated CSS reset",
   "main": "css/reset.css",
   "repository": {
