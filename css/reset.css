@@ -31,11 +31,13 @@ a, button {
 
 html { 
     height : 100%; 
+    min-height : 100dvh;
     hanging-punctuation: first last;
 }
 
 body {
     min-height : 100%;
+    min-height : 100dvh;
     text-rendering : optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-text-size-adjust: none;
