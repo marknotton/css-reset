@@ -19,6 +19,9 @@
 *::before,
 *::after {
     box-sizing: border-box;
+}
+
+input, textarea { 
     min-width: 0;
 }
 
