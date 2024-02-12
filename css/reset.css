@@ -147,7 +147,6 @@ meter {
 }
 
 :where(p) {
-    max-width: 75ch;
     text-wrap: pretty;
 }
 
