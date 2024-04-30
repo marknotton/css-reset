@@ -9,7 +9,7 @@
     - The "symbol *" part is to solve Firefox SVG sprite bug
     - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
 */
-*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *, path)) {
     all: unset;
     display: revert;
 }
@@ -38,10 +38,12 @@ body {
     min-height : 100%;
     min-height : 100dvh;
     text-rendering : optimizeLegibility;
+	font-synthesis: none;
+    text-size-adjust: none;
     -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
     -moz-text-size-adjust: none;
     -webkit-text-size-adjust: none;
-    text-size-adjust: none;
 }
 
 /* For images to not be able to exceed their container */
