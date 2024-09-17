@@ -28,6 +28,10 @@ a, button {
 
 /* noscript is handled internally, as it depends on settings. */
 
+:root {
+    interpolate-size: allow-keywords;
+}
+
 html { 
     height : 100%; 
     min-height : 100dvh;
