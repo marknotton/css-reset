@@ -30,10 +30,10 @@ a, button {
 
 :root {
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
 
     @media (prefers-reduced-motion: no-preference) {
         interpolate-size: allow-keywords;
@@ -44,6 +44,9 @@ html {
     block-size : 100%; 
     min-block-size : 100dvh;
     hanging-punctuation: first last;
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
 }
 
 body {
@@ -53,10 +56,6 @@ body {
     font-family: system-ui, sans-serif;
 	font-synthesis: none;
     text-size-adjust: none;
-    -webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-    -moz-text-size-adjust: none;
-    -webkit-text-size-adjust: none;
 }
 
 /* site-wrapper {
@@ -76,6 +75,8 @@ img {
     background-repeat: no-repeat; 
     background-size: cover; 
     shape-margin: 0.75rem;
+    max-inline-size: 100%;
+    max-block-size: 100%;
 }
 
 /* removes spacing between cells in tables */
@@ -85,7 +86,7 @@ table {
 
 /* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
 input, textarea {
-    -webkit-user-select: auto;
+    user-select: auto;
     min-width: 0;
 }
 
@@ -115,7 +116,7 @@ meter {
 }
 
 /* Remove list styles (bullets/numbers) */
-:where(ol, ul) {
+:where(ol, ul, menu) {
     list-style-type: revert;
 }
 :where(ol, ul) li {
@@ -123,6 +124,10 @@ meter {
 }
 :where(ol, ul) li :where(ol, ul, li + li) {
     margin-block-start: 1em;
+}
+
+:where(ol) {
+    counter-reset: revert;
 }
 
 :where(small, sup, sub) { 
