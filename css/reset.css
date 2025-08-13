@@ -29,25 +29,42 @@ a, button {
 /* noscript is handled internally, as it depends on settings. */
 
 :root {
-    interpolate-size: allow-keywords;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+
+    @media (prefers-reduced-motion: no-preference) {
+        interpolate-size: allow-keywords;
+    }
 }
 
 html { 
-    height : 100%; 
-    min-height : 100dvh;
+    block-size : 100%; 
+    min-block-size : 100dvh;
     hanging-punctuation: first last;
 }
 
 body {
-    min-height : 100%;
-    min-height : 100dvh;
+    min-block-size : 100%;
+    min-block-size : 100dvh;
     text-rendering : optimizeLegibility;
+    font-family: system-ui, sans-serif;
 	font-synthesis: none;
     text-size-adjust: none;
     -webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
     -moz-text-size-adjust: none;
     -webkit-text-size-adjust: none;
+}
+
+/* site-wrapper {
+    width: min(100% - var(--gutter), 1256px);
+} */
+
+:where(html, body) {
+    scrollbar-gutter: stable;
 }
 
 /* For images to not be able to exceed their container */
@@ -172,6 +189,7 @@ meter {
 /* When available, balance headings to break evening on each line */
 :where(h1, h2, h3, h4, h5, h6) { 
     text-wrap: balance;
+    text-box: trim-both cap alphabetic;
 }
 
 :where(a:any-link, u) {
