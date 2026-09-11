@@ -27,9 +27,7 @@ a, button {
 }
 
 /* noscript is handled internally, as it depends on settings. */
-
 :root {
-
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -40,8 +38,8 @@ a, button {
     }
 }
 
-html { 
-    block-size : 100%; 
+html {
+    block-size : 100%;
     min-block-size : 100dvh;
     hanging-punctuation: first last;
     -moz-text-size-adjust: none;
@@ -53,27 +51,22 @@ body {
     min-block-size : 100%;
     min-block-size : 100dvh;
     text-rendering : optimizeLegibility;
-    font-family: system-ui, sans-serif;
 	font-synthesis: none;
     text-size-adjust: none;
 }
 
-/* site-wrapper {
-    width: min(100% - var(--gutter), 1256px);
-} */
-
-:where(html, body) {
+/* :where(html, body) {
     scrollbar-gutter: stable;
-}
+} */
 
 /* For images to not be able to exceed their container */
 img {
     max-width: 100%;
     height: auto;
-    vertical-align: middle; 
-    font-style: italic; 
-    background-repeat: no-repeat; 
-    background-size: cover; 
+    vertical-align: middle;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
     shape-margin: 0.75rem;
     max-inline-size: 100%;
     max-block-size: 100%;
@@ -95,8 +88,8 @@ textarea {
     white-space: revert;
 }
 
-script, style { 
-    display:none !important; 
+script, style {
+    display:none !important;
 }
 
 /* minimum style to allow to style meter element */
@@ -110,7 +103,11 @@ meter {
     vertical-align: bottom;
 }
 
-:where(video) { 
+:where(svg foreignObject) { 
+    overflow: inherit;
+}
+
+:where(video) {
     width: 100%;
     background-color: black;
 }
@@ -130,16 +127,16 @@ meter {
     counter-reset: revert;
 }
 
-:where(small, sup, sub) { 
+:where(small, sup, sub) {
     font-size:x-small;
 }
 
-:where(sup, sub) { 
+:where(sup, sub) {
     vertical-align: revert;
 }
 
-:where(b, strong) { 
-    font-weight: bold; 
+:where(b, strong) {
+    font-weight: bold;
 }
 
 :where(embed) {
@@ -151,27 +148,12 @@ meter {
     width: 100%;
 }
 
-:where(i, em) { 
+:where(i, em) {
     font-style: italic;
 }
 
 :where(s, del) {
     text-decoration: revert;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-
-    /* Scroll padding allowance above anchor links */
-    :has(:target) {
-        scroll-behavior: smooth;    
-        scroll-padding-block-start: var(--gutter, 2rem);
-    }
-
-    /* Scroll padding allowance below focused elements 
-    to ensure they are clearly in view */
-    :focus {
-        scroll-padding-block-end: var(--spacer, 2rem);
-    }
 }
 
 :where(p) {
@@ -192,7 +174,7 @@ meter {
 }
 
 /* When available, balance headings to break evening on each line */
-:where(h1, h2, h3, h4, h5, h6) { 
+:where(h1, h2, h3, h4, h5, h6) {
     text-wrap: balance;
     text-box: trim-both cap alphabetic;
 }
@@ -201,14 +183,14 @@ meter {
     text-underline-offset: 0.2em;
 }
 
-:where(label) { 
+:where(label) {
     position:relative;
 }
 
-:is(label input[type="radio"], label input[type="checkbox"]) { 
-    position:absolute; 
-    opacity:0; 
-    pointer-events: none; 
+:is(label input[type="radio"], label input[type="checkbox"]) {
+    position:absolute;
+    opacity:0;
+    pointer-events: none;
 }
 
 :where(details > summary) {
@@ -248,9 +230,11 @@ display:revert; revert to element instead of attribute */
 :where([contenteditable]:not([contenteditable="false"])) {
     -moz-user-modify: read-write;
     -webkit-user-modify: read-write;
-    overflow-wrap: break-word;
     -webkit-line-break: after-white-space;
     -webkit-user-select: auto;
+    overflow-wrap: break-word;
+    line-break: after-white-space;
+     user-select: auto;
 }
 
 /* apply back the draggable feature - exist only in Chromium and Safari */
@@ -264,5 +248,5 @@ display:revert; revert to element instead of attribute */
     box-sizing: border-box;
 }
 
-:where(p, pre, blockquote, ol, ul, li, legend, figcaption, article, nav, 
+:where(p, pre, blockquote, ol, ul, li, legend, figcaption, article, nav,
 aside, section, header, footer, address):empty { display:none; }
