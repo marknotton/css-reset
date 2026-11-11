@@ -103,7 +103,7 @@ meter {
     vertical-align: bottom;
 }
 
-:where(svg foreignObject) { 
+:where(svg foreignObject) {
     overflow: inherit;
 }
 
@@ -250,3 +250,15 @@ display:revert; revert to element instead of attribute */
 
 :where(p, pre, blockquote, ol, ul, li, legend, figcaption, article, nav,
 aside, section, header, footer, address):empty { display:none; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
